@@ -1,0 +1,17 @@
+{
+    "name": "padam87/address-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 AddressBundle",
+    "keywords": ["symfony", "address", "geocode"],
+    "homepage": "https://github.com/Padam87/AddressBundle",
+    "authors": [
+        {
+            "name": "Adam Prager",
+            "email": "prager.adam87@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Padam87\\AddressBundle": "" }
+    },
+    "target-dir": "Padam87/AddressBundle"
+}
