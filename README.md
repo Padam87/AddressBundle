@@ -1,4 +1,4 @@
-# 1 ,Installation #
+# 1, Installation #
 
 ## 1.1 BazingaGeocoderBundle ##
 
@@ -45,13 +45,16 @@ You can create a relation to one of the Entities, or you can use one of the trai
 	$formatted = $this->get("padam87.address.formatter")->format($address, FormatterService::FLAG_NOBR);
 
 #### Available flags ####
-	
-	`FLAG_NOBR` No linebreak will be added
-	`FLAG_HTML` Outputs the address in html format
+
+`FLAG_NOBR` No linebreak will be added
+
+`FLAG_HTML` Outputs the address in html format
 
 ### 2.2 Twig extension ###
 
-	{{ address|address()|raw }} will output the formatted address, with the `FLAG_HTML` added by default
+	{{ address|address()|raw }}
+	
+This will output the formatted address, with the `FLAG_HTML` added by default
 
 ### 2.3 Geocoding ###
 
