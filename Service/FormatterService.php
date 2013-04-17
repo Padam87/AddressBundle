@@ -55,6 +55,11 @@ class FormatterService
             $this->getPattern($address->getCountry())
         );
 
+        // remove multiple line breaks
+        while (strstr($string, "\n\n") != false) {
+            $string = str_replace("\n\n", "\n", $string);
+        }
+
         if ($this->isFlagged($flags, self::FLAG_NOBR)) {
             $string = str_replace("\n", " ", $string);
         }
