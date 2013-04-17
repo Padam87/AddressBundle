@@ -10,6 +10,9 @@
             "email": "prager.adam87@gmail.com"
         }
     ],
+    "require": {
+        "willdurand/geocoder-bundle": "*"
+    },
     "autoload": {
         "psr-0": { "Padam87\\AddressBundle": "" }
     },
