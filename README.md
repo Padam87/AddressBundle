@@ -1,10 +1,17 @@
 # 1, Installation #
 
-## 1.1 BazingaGeocoderBundle ##
+## 1.1 Composer ##
+
+	"require": {
+		....
+		"padam87/address-bundle": "dev-master"
+	},
+
+## 1.2 BazingaGeocoderBundle ##
 
 Install [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBundle)
 
-## 1.2 AppKernel ##
+## 1.3 AppKernel ##
 
 	// app/AppKernel.php
 	public function registerBundles()
@@ -15,7 +22,7 @@ Install [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBun
 	    );
 	}
 
-## 1.3 config.yml ##
+## 1.4 config.yml ##
 
 Add the bundle to jms_di_extra if all_bundles is false
 
@@ -24,7 +31,7 @@ Add the bundle to jms_di_extra if all_bundles is false
 	        all_bundles: false
 	        bundles: [Padam87AddressBundle]
 
-## 1.4 doctrine:schema:update ##
+## 1.5 doctrine:schema:update ##
 
 Update Your schema
 
@@ -44,7 +51,7 @@ You can create a relation to one of the Entities, or you can use one of the trai
 	
 	$formatted = $this->get("padam87.address.formatter")->format($address, FormatterService::FLAG_NOBR);
 
-#### Available flags ####
+### Available flags ###
 
 `FLAG_NOBR` No linebreak will be added
 
