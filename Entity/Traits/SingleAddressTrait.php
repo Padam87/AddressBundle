@@ -21,10 +21,10 @@ trait SingleAddressTrait
     /**
      * Set address
      *
-     * @param \HRM\UserBundle\Entity\Address $address
+     * @param \Padam87\AddressBundle\Entity\Address $address
      * @return User
      */
-    public function setAddress(\HRM\UserBundle\Entity\Address $address = null)
+    public function setAddress(\Padam87\AddressBundle\Entity\Address $address = null)
     {
         $this->address = $address;
 
