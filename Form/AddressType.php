@@ -22,9 +22,6 @@ class AddressType extends AbstractType
         $builder->add('zipcode', 'text', array(
             'required' => false
         ));
-        $builder->add('county', 'text', array(
-            'required' => false
-        ));
         $builder->add('city', 'text', array(
         ));
         $builder->add('street', 'text', array(
