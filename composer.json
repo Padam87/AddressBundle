@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "willdurand/geocoder-bundle": "*"
+        "willdurand/geocoder-bundle": "*",
+        "symfony/symfony": ">=2.1.*"
     },
     "autoload": {
         "psr-0": { "Padam87\\AddressBundle": "" }

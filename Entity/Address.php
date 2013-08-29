@@ -32,7 +32,7 @@ class Address
      * @ORM\Column(type="string", length=255)
      * @Assert\Country()
      * @Assert\NotBlank()
-     * @Assert\MaxLength(255)
+     * @Assert\Length(min="2", max="255")
      */
     private $country;
 
@@ -40,7 +40,7 @@ class Address
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\MaxLength(255)
+     * @Assert\Length(max="255")
      */
     private $state;
 
@@ -48,7 +48,7 @@ class Address
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\MaxLength(255)
+     * @Assert\Length(max="255")
      */
     private $zipCode;
 
@@ -57,7 +57,7 @@ class Address
      *
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\MaxLength(255)
+     * @Assert\Length(max="255")
      */
     private $city;
 
@@ -65,7 +65,7 @@ class Address
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\MaxLength(255)
+     * @Assert\Length(max="255")
      */
     private $district;
 
@@ -74,7 +74,7 @@ class Address
      *
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\MaxLength(255)
+     * @Assert\Length(max="255")
      */
     private $street;
 
