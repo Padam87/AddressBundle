@@ -14,6 +14,17 @@ class FormatterService
     const FLAG_HTML      = 1;
     const FLAG_NOBR      = 2;
 
+    /**
+     * Valid tokens: country, state, county, city, zipCode, district, street
+     *
+     * Available modifiers:
+     *  ?   Optional token
+     *  ^   Convert value to uppercase
+     *  ˇ   Convert value to lowercase
+     *  \n  Line break
+     *
+     * @var array
+     */
     public $patterns = array(
         'generic' => "{street}\n{?district}\n{city}\n{?state}\n{zipCode}\{country}",
         'US' => "{street}\n{^city}, {^state} {^zipCode}\n{^country}",
