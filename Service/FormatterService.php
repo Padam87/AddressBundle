@@ -15,7 +15,7 @@ class FormatterService
 
     public $patterns = array(
         'generic' => "{street}\n{?district}\n{city}\n{?state}\n{zipCode}",
-        'us' => "{street}\n{city}, {state} {zipcode}",
+        'us' => "{street}\n{city}, {state} {zipCode}",
         'hu' => "{city}\n{street}\n{zipCode}"
     );
 
