@@ -60,6 +60,11 @@ class FormatterService
             $string = str_replace("\n\n", "\n", $string);
         }
 
+        // remove multiple commas
+        while (strstr($string, ",,") != false) {
+            $string = str_replace(",,", ",", $string);
+        }
+
         if ($this->isFlagged($flags, self::FLAG_NOBR)) {
             $string = str_replace("\n", " ", $string);
         }
