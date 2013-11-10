@@ -4,6 +4,7 @@ namespace Padam87\AddressBundle\Service;
 
 use JMS\DiExtraBundle\Annotation as DI;
 use Padam87\AddressBundle\Entity\AddressInterface;
+use Symfony\Component\Intl\Intl;
 
 /**
  * @DI\Service("padam87.address.formatter")
@@ -35,22 +36,45 @@ class FormatterService
             "/{([^}]*)}/",
             function($matches) use ($address) {
                 $match = $matches[1];
-                $optional = false;
 
-                if ($match[0] == '?') {
+                $optional = false;
+                $toUpper = false;
+                $toLower = false;
+
+                if (strstr($match, "?") != false) {
                     $match = str_replace("?", "", $match);
                     $optional = true;
                 }
 
-                $getter = "get" . str_replace(" ", "", ucwords(str_replace("_", " ", $matches[1])));
+                if (strstr($match, "^") != false) {
+                    $match = str_replace("^", "", $match);
+                    $toUpper = true;
+                }
+
+                if (strstr($match, "ˇ") != false) {
+                    $match = str_replace("ˇ", "", $match);
+                    $toLower = true;
+                }
+
+                $getter = "get" . str_replace(" ", "", ucwords(str_replace("_", " ", $match)));
 
                 if (method_exists($address, $getter)) {
-                    return $address->$getter();
+                    $value = $address->$getter();
                 } elseif ($optional) {
-                    return '';
+                    $value = '';
                 } else {
-                    return '{' . $matches[1] . '}';
+                    $value = '{' . $matches[1] . '}';
                 }
+
+                if ($toUpper) {
+                    $value = strtoupper($value);
+                }
+
+                if ($toLower) {
+                    $value = strtolower($value);
+                }
+
+                return $value;
             },
             $this->getPattern($address->getCountry())
         );
