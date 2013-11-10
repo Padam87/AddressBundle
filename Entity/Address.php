@@ -50,6 +50,14 @@ class Address implements AddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
+    private $county;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max="255")
+     */
     private $zipCode;
 
     /**
@@ -132,6 +140,29 @@ class Address implements AddressInterface
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Set county
+     *
+     * @param string $county
+     * @return Address
+     */
+    public function setCounty($county)
+    {
+        $this->county = $county;
+
+        return $this;
+    }
+
+    /**
+     * Get county
+     *
+     * @return string
+     */
+    public function getCounty()
+    {
+        return $this->county;
     }
 
     /**

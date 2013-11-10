@@ -17,6 +17,11 @@ interface AddressInterface
     /**
      * return @string
      */
+    function getCounty();
+
+    /**
+     * return @string
+     */
     function getZipCode();
 
     /**
