@@ -44,7 +44,7 @@ class FormatterService
 
                 $getter = "get" . str_replace(" ", "", ucwords(str_replace("_", " ", $matches[1])));
 
-                if (method_exists($address, $getter) && $address->$getter() != null) {
+                if (method_exists($address, $getter)) {
                     return $address->$getter();
                 } elseif ($optional) {
                     return '';
