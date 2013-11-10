@@ -15,9 +15,10 @@ class FormatterService
     const FLAG_NOBR      = 2;
 
     public $patterns = array(
-        'generic' => "{street}\n{?district}\n{city}\n{?state}\n{zipCode}",
-        'us' => "{street}\n{city}, {state} {zipCode}",
-        'hu' => "{city}\n{street}\n{zipCode}"
+        'generic' => "{street}\n{?district}\n{city}\n{?state}\n{zipCode}\{country}",
+        'US' => "{street}\n{^city}, {^state} {^zipCode}\n{^country}",
+        'GB' => "{street}\n{^city}\n{?^county}\n{^zipCode}\n{^country}",
+        'HU' => "{city}\n{street}\n{zipCode}\n{country}"
     );
 
     public $fallbackPattern = 'generic';
@@ -66,6 +67,10 @@ class FormatterService
                     $value = '{' . $matches[1] . '}';
                 }
 
+                if ($match === 'country') {
+                    $value = Intl::getRegionBundle()->getCountryName(strtoupper($value));
+                }
+
                 if ($toUpper) {
                     $value = strtoupper($value);
                 }
@@ -112,8 +117,8 @@ class FormatterService
         $pattern = null;
         $countryCode = strtolower($countryCode);
 
-        if ($countryCode != null && isset($this->patterns[$countryCode])) {
-            $pattern = $this->patterns[$countryCode];
+        if ($countryCode != null && isset($this->patterns[strtoupper($countryCode)])) {
+            $pattern = $this->patterns[strtoupper($countryCode)];
         } else {
             $pattern = $this->patterns[$this->fallbackPattern];
         }
