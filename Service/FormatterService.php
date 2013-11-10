@@ -3,7 +3,7 @@
 namespace Padam87\AddressBundle\Service;
 
 use JMS\DiExtraBundle\Annotation as DI;
-use Padam87\AddressBundle\Entity\Address;
+use Padam87\AddressBundle\Entity\AddressInterface;
 
 /**
  * @DI\Service("padam87.address.formatter")
@@ -29,7 +29,7 @@ class FormatterService
      * @param int $flags
      * @return string
      */
-    public function format(Address $address, $flags = 0)
+    public function format(AddressInterface $address, $flags = 0)
     {
         $string = preg_replace_callback(
             "/{([^}]*)}/",

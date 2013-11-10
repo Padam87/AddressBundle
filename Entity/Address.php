@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Adam Prager <prager.adam87@gmail.com>
  */
-class Address
+class Address implements AddressInterface
 {
     /**
      * @ORM\Id
