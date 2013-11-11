@@ -13,6 +13,7 @@ class FormatterService
 {
     const FLAG_HTML      = 1;
     const FLAG_NOBR      = 2;
+    const FLAG_NOCASE    = 4;
 
     /**
      * Valid tokens: country, state, county, city, zipCode, district, street
@@ -46,7 +47,7 @@ class FormatterService
     {
         $string = preg_replace_callback(
             "/{([^}]*)}/",
-            function($matches) use ($address) {
+            function($matches) use ($address, $flags) {
                 $match = $matches[1];
 
                 $optional = false;
@@ -82,12 +83,14 @@ class FormatterService
                     $value = Intl::getRegionBundle()->getCountryName(strtoupper($value));
                 }
 
-                if ($toUpper) {
-                    $value = strtoupper($value);
-                }
+                if (!$this->isFlagged($flags, self::FLAG_NOCASE)) {
+                    if ($toUpper) {
+                        $value = strtoupper($value);
+                    }
 
-                if ($toLower) {
-                    $value = strtolower($value);
+                    if ($toLower) {
+                        $value = strtolower($value);
+                    }
                 }
 
                 return $value;

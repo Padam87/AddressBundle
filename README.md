@@ -40,15 +40,15 @@ Update Your schema
 You can create a relation to one of the Entities, or you can use one of the traits.
 
 ## 2.1 Formatter ##
-	
+
 	$formatted = $this->get("padam87.address.formatter")->format($address);
 
 ### Flags ###
 
 	use Padam87\AddressBundle\Service\FormatterService;
-	
+
 	...
-	
+
 	$formatted = $this->get("padam87.address.formatter")->format($address, FormatterService::FLAG_NOBR);
 
 ### Available flags ###
@@ -57,10 +57,12 @@ You can create a relation to one of the Entities, or you can use one of the trai
 
 `FLAG_HTML` Outputs the address in html format
 
+`FLAG_NOCASE` No case change will be applied
+
 ### 2.2 Twig extension ###
 
 	{{ address|address()|raw }}
-	
+
 This will output the formatted address, with the `FLAG_HTML` added by default
 
 ### 2.3 Geocoding ###
