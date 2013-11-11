@@ -29,7 +29,7 @@ class FormatterService
         'generic' => "{street}\n{?district}\n{city}\n{?state}\n{zipCode}\{country}",
         'US' => "{street}\n{^city}, {^state} {^zipCode}\n{^country}",
         'GB' => "{street}\n{^city}\n{?^county}\n{^zipCode}\n{^country}",
-        'HU' => "{city}\n{street}\n{zipCode}\n{country}"
+        'HU' => "{city} {?district}\n{street}\n{zipCode}\n{country}"
     );
 
     public $fallbackPattern = 'generic';
