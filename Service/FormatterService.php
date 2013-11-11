@@ -45,9 +45,11 @@ class FormatterService
      */
     public function format(AddressInterface $address, $flags = 0)
     {
+        $formatter = $this;
+
         $string = preg_replace_callback(
             "/{([^}]*)}/",
-            function($matches) use ($address, $flags) {
+            function($matches) use ($formatter, $address, $flags) {
                 $match = $matches[1];
 
                 $optional = false;
@@ -83,7 +85,7 @@ class FormatterService
                     $value = Intl::getRegionBundle()->getCountryName(strtoupper($value));
                 }
 
-                if (!$this->isFlagged($flags, self::FLAG_NOCASE)) {
+                if (!$formatter->isFlagged($flags, self::FLAG_NOCASE)) {
                     if ($toUpper) {
                         $value = strtoupper($value);
                     }
