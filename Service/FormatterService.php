@@ -83,7 +83,7 @@ class FormatterService
                     $value = Intl::getRegionBundle()->getCountryName(strtoupper($value));
                 }
 
-                if (!self::isFlagged($flags, self::FLAG_NOCASE)) {
+                if (!$this->isFlagged($flags, self::FLAG_NOCASE)) {
                     if ($toUpper) {
                         $value = strtoupper($value);
                     }
@@ -147,7 +147,7 @@ class FormatterService
      * @param type $flag
      * @return boolean
      */
-    public static function isFlagged($flags, $flag)
+    protected function isFlagged($flags, $flag)
     {
         return ($flags & $flag) === $flag;
     }
