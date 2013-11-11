@@ -31,10 +31,9 @@ class FormatterTest extends WebTestCase
     {
         $address = new Address();
         $address->setCountry('GB');
-        $address->setStreet('49 Featherstone Street');
-        $address->setCity('Aylesbury');
-        $address->setCounty('Buckinghamshire');
-        $address->setZipCode('HP19 3EQ');
+        $address->setStreet('96 Euston Road');
+        $address->setCity('London');
+        $address->setZipCode('NW1 2DB');
 
         $this->assertEquals(file_get_contents(__DIR__ . '/../Resources/fixtures/address_UK.txt'), $this->formatter->format($address));
     }
