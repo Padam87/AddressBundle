@@ -149,7 +149,7 @@ class FormatterService
      * @param type $flag
      * @return boolean
      */
-    protected function isFlagged($flags, $flag)
+    public function isFlagged($flags, $flag)
     {
         return ($flags & $flag) === $flag;
     }
