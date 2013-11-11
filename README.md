@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Padam87/AddressBundle.png?branch=master)](https://travis-ci.org/Padam87/AddressBundle)
+[![Coverage Status](https://coveralls.io/repos/Padam87/AddressBundle/badge.png)](https://coveralls.io/r/Padam87/AddressBundle)
+
 # 1, Installation #
 
 ## 1.1 Composer ##
