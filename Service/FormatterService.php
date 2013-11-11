@@ -85,7 +85,7 @@ class FormatterService
                     $value = Intl::getRegionBundle()->getCountryName(strtoupper($value));
                 }
 
-                if (!$formatter->isFlagged($flags, self::FLAG_NOCASE)) {
+                if (!$formatter->isFlagged($flags, \Padam87\AddressBundle\Service\FormatterService::FLAG_NOCASE)) {
                     if ($toUpper) {
                         $value = strtoupper($value);
                     }
