@@ -12,7 +12,7 @@
     ],
     "require": {
         "willdurand/geocoder-bundle": "*",
-        "symfony/symfony": "2.1.*",
+        "symfony/symfony": ">2.1.0",
         "symfony/intl": "*",
         "jms/di-extra-bundle": "*"
     },
