@@ -75,3 +75,7 @@ This will output the formatted address, with the `FLAG_HTML` added by default
 
 The listener will take care of the rest ;)
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Padam87/addressbundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
