@@ -8,12 +8,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="address")
- * @ORM\InheritanceType("JOINED")
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
- * @ORM\DiscriminatorMap({
- *     "address" = "Address",
- *     "geocodedAddress" = "GeocodedAddress"
- * })
  *
  * @author Adam Prager <prager.adam87@gmail.com>
  */
