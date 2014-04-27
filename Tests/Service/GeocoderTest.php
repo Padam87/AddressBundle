@@ -10,7 +10,7 @@ use Geocoder\Geocoder;
 use Geocoder\Provider\GoogleMapsProvider;
 use Geocoder\HttpAdapter\CurlHttpAdapter;
 
-class GeocoderTest extends WebTestCase
+class GeocoderTest extends \PHPUnit_Framework_TestCase
 {
     protected $geocoder;
 

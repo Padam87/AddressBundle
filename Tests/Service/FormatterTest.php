@@ -2,11 +2,10 @@
 
 namespace Padam87\AddressBundle\Test\Functional;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Padam87\AddressBundle\Entity\Address;
 use Padam87\AddressBundle\Service\FormatterService;
 
-class FormatterTest extends WebTestCase
+class FormatterTest extends \PHPUnit_Framework_TestCase
 {
     protected $formatter;
 
