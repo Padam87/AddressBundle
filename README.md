@@ -31,16 +31,7 @@ Install [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBun
 	    );
 	}
 
-## 1.4 config.yml ##
-
-Add the bundle to jms_di_extra if all_bundles is false
-
-	jms_di_extra:
-	    locations:
-	        all_bundles: false
-	        bundles: [Padam87AddressBundle]
-
-## 1.5 doctrine:schema:update ##
+## 1.4 doctrine:schema:update ##
 
 Update Your schema
 
