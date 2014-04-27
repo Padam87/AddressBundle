@@ -3,12 +3,8 @@
 namespace Padam87\AddressBundle\Service;
 
 use Geocoder\GeocoderInterface;
-use JMS\DiExtraBundle\Annotation as DI;
 use Padam87\AddressBundle\Entity\GeocodedAddressInterface;
 
-/**
- * @DI\Service("padam87.address.geocoder")
- */
 class GeocoderService
 {
     /**
@@ -17,15 +13,13 @@ class GeocoderService
     protected $geocoder;
 
     /**
-     * @var \Padam87\AddressBundle\Service\FormatterService
+     * @var FormatterService
      */
     protected $formatter;
 
     /**
-     * @DI\InjectParams({
-     *     "geocoder" = @DI\Inject("bazinga_geocoder.geocoder"),
-     *     "formatter" = @DI\Inject("padam87.address.formatter")
-     * })
+     * @param GeocoderInterface $geocoder
+     * @param FormatterService  $formatter
      */
     public function __construct(GeocoderInterface $geocoder, FormatterService $formatter)
     {
@@ -33,6 +27,9 @@ class GeocoderService
         $this->formatter = $formatter;
     }
 
+    /**
+     * @param GeocodedAddressInterface $address
+     */
     public function geocode(GeocodedAddressInterface $address)
     {
         try {

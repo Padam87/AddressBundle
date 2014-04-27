@@ -10,8 +10,7 @@ class AppKernel extends Kernel
         return array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
 
             new Padam87\AddressBundle\Padam87AddressBundle(),
         );

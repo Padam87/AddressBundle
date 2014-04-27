@@ -2,29 +2,28 @@
 
 namespace Padam87\AddressBundle\Listener;
 
-use JMS\DiExtraBundle\Annotation as DI;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Padam87\AddressBundle\Entity\GeocodedAddressInterface;
 use Padam87\AddressBundle\Service\GeocoderService;
 
-/**
- * @DI\Service("padam87.address.geocode_listener")
- * @DI\Tag("doctrine.event_listener", attributes = {"event" = "prePersist"})
- */
 class GeocodeListener
 {
+    /**
+     * @var GeocoderService
+     */
     private $geocoder;
 
     /**
-     * @DI\InjectParams({
-     *     "geocoder" = @DI\Inject("padam87.address.geocoder")
-     * })
+     * @param GeocoderService $geocoder
      */
     public function __construct(GeocoderService $geocoder)
     {
         $this->geocoder = $geocoder;
     }
 
+    /**
+     * @param LifecycleEventArgs $eventArgs
+     */
     public function prePersist(LifecycleEventArgs $eventArgs)
     {
         $entity = $eventArgs->getEntity();

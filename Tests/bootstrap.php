@@ -7,7 +7,3 @@ if (!is_file($autoloadFile = __DIR__.'/../vendor/autoload.php')) {
 }
 
 require $autoloadFile;
-
-require_once __DIR__ . '/../vendor/jms/di-extra-bundle/JMS/DiExtraBundle/Annotation/Service.php';
-require_once __DIR__ . '/../vendor/jms/di-extra-bundle/JMS/DiExtraBundle/Annotation/Inject.php';
-require_once __DIR__ . '/../vendor/jms/di-extra-bundle/JMS/DiExtraBundle/Annotation/InjectParams.php';

@@ -2,13 +2,9 @@
 
 namespace Padam87\AddressBundle\Service;
 
-use JMS\DiExtraBundle\Annotation as DI;
 use Padam87\AddressBundle\Entity\AddressInterface;
 use Symfony\Component\Intl\Intl;
 
-/**
- * @DI\Service("padam87.address.formatter")
- */
 class FormatterService
 {
     const FLAG_HTML      = 1;

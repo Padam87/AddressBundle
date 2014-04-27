@@ -16,11 +16,11 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: true
-        entity_managers:
-            default:
-                mappings:
-                    Padam87AddressBundleTest:
-                        type: annotation
-                        prefix: Padam87\AddressBundle\Tests\Models
-                        dir: "%kernel.root_dir%/../../Models/"
-                        is_bundle: false
+#        entity_managers:
+#            default:
+#                mappings:
+#                    Padam87AddressBundleTest:
+#                        type: annotation
+#                        prefix: Padam87\AddressBundle\Tests\Models
+#                        dir: "%kernel.root_dir%/../../Models/"
+#                        is_bundle: false
