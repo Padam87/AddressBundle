@@ -33,4 +33,4 @@ interface GeocodedAddressInterface
      * @return integer
      */
     public function getLongitude();
-} 
+}

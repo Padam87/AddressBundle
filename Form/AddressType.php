@@ -7,8 +7,6 @@ use Symfony\Component\Form\AbstractType;
 
 /**
  * Default form type for the Address entity
- *
- * @author Adam Prager <prager.adam87@gmail.com>
  */
 class AddressType extends AbstractType
 {

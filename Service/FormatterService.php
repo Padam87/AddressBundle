@@ -34,9 +34,9 @@ class FormatterService
     /**
      * Formats an address
      *
-     * @param \Padam87\AddressBundle\Entity\Address $address
-     * @param string $countryCode
-     * @param int $flags
+     * @param AddressInterface $address
+     * @param int              $flags
+     *
      * @return string
      */
     public function format(AddressInterface $address, $flags = 0)
@@ -45,7 +45,7 @@ class FormatterService
 
         $string = preg_replace_callback(
             "/{([^}]*)}/",
-            function($matches) use ($formatter, $address, $flags) {
+            function ($matches) use ($formatter, $address, $flags) {
                 $match = $matches[1];
 
                 $optional = false;
@@ -141,8 +141,8 @@ class FormatterService
     /**
      * Determines if a format/flag was used or not
      *
-     * @param type $flags
-     * @param type $flag
+     * @param int $flags
+     * @param int $flag
      * @return boolean
      */
     public function isFlagged($flags, $flag)

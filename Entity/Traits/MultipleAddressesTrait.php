@@ -3,7 +3,6 @@
 namespace Padam87\AddressBundle\Entity\Traits;
 
 use Padam87\AddressBundle\Entity\AddressInterface;
-use Doctrine\Common\Collections\Collection;
 
 /**
  * Adds multiple addresses to the given Entity (many-to-many unidirectional)
@@ -13,7 +12,7 @@ use Doctrine\Common\Collections\Collection;
 trait MultipleAddressesTrait
 {
     /**
-     * @var Collection[AddressInterface]
+     * @var \Doctrine\Common\Collections\Collection[AddressInterface]
      *
      * @ORM\ManyToMany(targetEntity="Padam87\AddressBundle\Entity\Address")
      * @Assert\Valid()

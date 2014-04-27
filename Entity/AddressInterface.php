@@ -7,35 +7,35 @@ interface AddressInterface
     /**
      * return @string
      */
-    function getCountry();
+    public function getCountry();
 
     /**
      * return @string
      */
-    function getState();
+    public function getState();
 
     /**
      * return @string
      */
-    function getCounty();
+    public function getCounty();
 
     /**
      * return @string
      */
-    function getZipCode();
+    public function getZipCode();
 
     /**
      * return @string
      */
-    function getCity();
+    public function getCity();
 
     /**
      * return @string
      */
-    function getDistrict();
+    public function getDistrict();
 
     /**
      * return @string
      */
-    function getStreet();
+    public function getStreet();
 }
