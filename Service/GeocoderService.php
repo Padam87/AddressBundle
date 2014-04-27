@@ -2,10 +2,9 @@
 
 namespace Padam87\AddressBundle\Service;
 
+use Geocoder\GeocoderInterface;
 use JMS\DiExtraBundle\Annotation as DI;
-use Geocoder\Geocoder;
-use Padam87\AddressBundle\Service\FormatterService;
-use Padam87\AddressBundle\Entity\GeocodedAddress;
+use Padam87\AddressBundle\Entity\GeocodedAddressInterface;
 
 /**
  * @DI\Service("padam87.address.geocoder")
@@ -13,12 +12,12 @@ use Padam87\AddressBundle\Entity\GeocodedAddress;
 class GeocoderService
 {
     /**
-     * @var Geocoder\Geocoder
+     * @var GeocoderInterface
      */
     protected $geocoder;
 
     /**
-     * @var Padam87\AddressBundle\Service\FormatterService
+     * @var \Padam87\AddressBundle\Service\FormatterService
      */
     protected $formatter;
 
@@ -28,13 +27,13 @@ class GeocoderService
      *     "formatter" = @DI\Inject("padam87.address.formatter")
      * })
      */
-    public function __construct(Geocoder $geocoder, FormatterService $formatter)
+    public function __construct(GeocoderInterface $geocoder, FormatterService $formatter)
     {
         $this->geocoder = $geocoder;
         $this->formatter = $formatter;
     }
 
-    public function geocode(GeocodedAddress $address)
+    public function geocode(GeocodedAddressInterface $address)
     {
         try {
             $coords = $this->geocoder->geocode($this->formatter->format($address, FormatterService::FLAG_NOBR));
