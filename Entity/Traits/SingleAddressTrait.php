@@ -2,6 +2,8 @@
 
 namespace Padam87\AddressBundle\Entity\Traits;
 
+use Padam87\AddressBundle\Entity\AddressInterface;
+
 /**
  * Adds a single address to the given Entity (one-to-one unidiretional)
  *
@@ -10,7 +12,7 @@ namespace Padam87\AddressBundle\Entity\Traits;
 trait SingleAddressTrait
 {
     /**
-     * @var Padam87\AddressBundle\Entity\Address
+     * @var AddressInterface
      *
      * @ORM\OneToOne(targetEntity="Padam87\AddressBundle\Entity\Address", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
@@ -19,12 +21,11 @@ trait SingleAddressTrait
     private $address;
 
     /**
-     * Set address
+     * @param AddressInterface $address
      *
-     * @param \Padam87\AddressBundle\Entity\Address $address
-     * @return User
+     * @return $this
      */
-    public function setAddress(\Padam87\AddressBundle\Entity\Address $address = null)
+    public function setAddress(AddressInterface $address = null)
     {
         $this->address = $address;
 
@@ -32,9 +33,7 @@ trait SingleAddressTrait
     }
 
     /**
-     * Get address
-     *
-     * @return \HRM\UserBundle\Entity\Address
+     * @return AddressInterface
      */
     public function getAddress()
     {

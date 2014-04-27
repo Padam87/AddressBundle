@@ -2,6 +2,9 @@
 
 namespace Padam87\AddressBundle\Entity\Traits;
 
+use Padam87\AddressBundle\Entity\AddressInterface;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Adds multiple addresses to the given Entity (many-to-many unidirectional)
  *
@@ -10,7 +13,7 @@ namespace Padam87\AddressBundle\Entity\Traits;
 trait MultipleAddressesTrait
 {
     /**
-     * @var Padam87\AddressBundle\Entity\Address
+     * @var Collection[AddressInterface]
      *
      * @ORM\ManyToMany(targetEntity="Padam87\AddressBundle\Entity\Address")
      * @Assert\Valid()
@@ -18,12 +21,11 @@ trait MultipleAddressesTrait
     private $addresses;
 
     /**
-     * Add addresses
+     * @param AddressInterface $addresses
      *
-     * @param \Padam87\AddressBundle\Entity\Address $addresses
-     * @return User
+     * @return $this
      */
-    public function addAddress(\Padam87\AddressBundle\Entity\Address $addresses)
+    public function addAddress(AddressInterface $addresses)
     {
         $this->addresses[] = $addresses;
 
@@ -31,11 +33,9 @@ trait MultipleAddressesTrait
     }
 
     /**
-     * Remove addresses
-     *
-     * @param \Padam87\AddressBundle\Entity\Address $addresses
+     * @param AddressInterface $addresses
      */
-    public function removeAddress(\Padam87\AddressBundle\Entity\Address $addresses)
+    public function removeAddress(AddressInterface $addresses)
     {
         $this->addresses->removeElement($addresses);
     }
