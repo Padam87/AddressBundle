@@ -11,9 +11,12 @@
         }
     ],
     "require": {
+        "php": "~5.4",
+        "symfony/framework-bundle": "~2.1",
+        "symfony/intl": "~2.3",
+        "doctrine/doctrine-bundle": "~1.1",
+        "doctrine/orm": "~2.1",
         "willdurand/geocoder-bundle": "*",
-        "symfony/symfony": ">2.1.0",
-        "symfony/intl": "*",
         "jms/di-extra-bundle": "*"
     },
     "require-dev": {
