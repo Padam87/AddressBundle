@@ -8,7 +8,7 @@
 
 	"require": {
 		....
-		"padam87/address-bundle": "dev-master"
+		"padam87/address-bundle": "~1.0"
 	},
 
 ## 1.2 BazingaGeocoderBundle ##
