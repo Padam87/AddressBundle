@@ -4,8 +4,8 @@ namespace Padam87\AddressBundle\Listener;
 
 use JMS\DiExtraBundle\Annotation as DI;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Padam87\AddressBundle\Entity\GeocodedAddressInterface;
 use Padam87\AddressBundle\Service\GeocoderService;
-use Padam87\AddressBundle\Entity\GeocodedAddress;
 
 /**
  * @DI\Service("padam87.address.geocode_listener")
@@ -29,7 +29,7 @@ class GeocodeListener
     {
         $entity = $eventArgs->getEntity();
 
-        if ($entity instanceof GeocodedAddress) {
+        if ($entity instanceof GeocodedAddressInterface) {
             $this->geocoder->geocode($entity);
         }
     }
