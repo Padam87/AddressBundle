@@ -26,6 +26,22 @@ class GeocodeListener
      */
     public function prePersist(LifecycleEventArgs $eventArgs)
     {
+        $this->geocode($eventArgs);
+    }
+
+    /**
+     * @param LifecycleEventArgs $eventArgs
+     */
+    public function preUpdate(LifecycleEventArgs $eventArgs)
+    {
+        $this->geocode($eventArgs);
+    }
+
+    /**
+     * @param LifecycleEventArgs $eventArgs
+     */
+    protected  function geocode(LifecycleEventArgs $eventArgs)
+    {
         $entity = $eventArgs->getEntity();
 
         if ($entity instanceof GeocodedAddressInterface) {

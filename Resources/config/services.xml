@@ -21,6 +21,7 @@
         <service id="padam87.address.geocode_listener" class="%padam87.address.geocode_listener.class%">
             <argument type="service" id="padam87.address.geocoder" />
             <tag name="doctrine.event_listener" event="prePersist" />
+            <tag name="doctrine.event_listener" event="preUpdate" />
         </service>
         <service id="padam87.address.twig_extension" class="%padam87.address.twig_extension.class%">
             <argument type="service" id="padam87.address.formatter" />
