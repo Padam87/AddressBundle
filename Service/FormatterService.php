@@ -34,12 +34,12 @@ class FormatterService
     /**
      * Formats an address
      *
-     * @param AddressInterface $address
-     * @param int              $flags
+     * @param AddressInterface|array $address
+     * @param int                    $flags
      *
      * @return string
      */
-    public function format(AddressInterface $address, $flags = 0)
+    public function format($address, $flags = 0)
     {
         $formatter = $this;
 
@@ -67,14 +67,24 @@ class FormatterService
                     $toLower = true;
                 }
 
-                $getter = "get" . str_replace(" ", "", ucwords(str_replace("_", " ", $match)));
+                $value = null;
 
-                if (method_exists($address, $getter)) {
-                    $value = $address->$getter();
-                } elseif ($optional) {
-                    $value = '';
-                } else {
-                    $value = '{' . $matches[1] . '}';
+                if ($address instanceof AddressInterface) {
+                    $getter = "get" . str_replace(" ", "", ucwords(str_replace("_", " ", $match)));
+
+                    if (method_exists($address, $getter)) {
+                        $value = $address->$getter();
+                    }
+                } elseif (is_array($address) && array_key_exists($match, $address)) {
+                    $value = $address[$match];
+                }
+
+                if ($value === null) {
+                    if ($optional) {
+                        $value = '';
+                    } else {
+                        $value = '{' . $matches[1] . '}';
+                    }
                 }
 
                 if ($match === 'country') {
@@ -93,7 +103,7 @@ class FormatterService
 
                 return $value;
             },
-            $this->getPattern($address->getCountry())
+            $this->getPattern($address)
         );
 
         // remove multiple line breaks
@@ -121,12 +131,17 @@ class FormatterService
      * Returns the pattern for the given country.
      * Falls back to the fallback pattern, if no pattern was specified for the counrty
      *
-     * @param string $countryCode
+     * @param AddressInterface|array $address
+     *
      * @return string
      */
-    protected function getPattern($countryCode = null)
+    protected function getPattern($address)
     {
         $pattern = null;
+        $countryCode = $address instanceof AddressInterface
+            ? $address->getCountry()
+            : $address['country']
+        ;
         $countryCode = strtolower($countryCode);
 
         if ($countryCode != null && isset($this->patterns[strtoupper($countryCode)])) {
@@ -143,6 +158,7 @@ class FormatterService
      *
      * @param int $flags
      * @param int $flag
+     *
      * @return boolean
      */
     public function isFlagged($flags, $flag)
