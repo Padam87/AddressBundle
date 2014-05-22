@@ -18,7 +18,7 @@ trait SingleAddressTrait
      * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      * @Assert\Valid()
      */
-    private $address;
+    protected $address;
 
     /**
      * @param AddressInterface $address

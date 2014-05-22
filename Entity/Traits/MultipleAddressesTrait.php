@@ -17,7 +17,7 @@ trait MultipleAddressesTrait
      * @ORM\ManyToMany(targetEntity="Padam87\AddressBundle\Entity\Address")
      * @Assert\Valid()
      */
-    private $addresses;
+    protected $addresses;
 
     /**
      * @param AddressInterface $addresses

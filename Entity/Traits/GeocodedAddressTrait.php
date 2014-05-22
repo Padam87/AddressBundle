@@ -9,14 +9,14 @@ trait GeocodedAddressTrait
      *
      * @ORM\Column(type="float", nullable=true)
      */
-    private $latitude;
+    protected $latitude;
 
     /**
      * @var string
      *
      * @ORM\Column(type="float", nullable=true)
      */
-    private $longitude;
+    protected $longitude;
 
     /**
      * Set latitude

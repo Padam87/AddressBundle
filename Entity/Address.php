@@ -20,7 +20,7 @@ class Address implements AddressInterface
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -30,7 +30,7 @@ class Address implements AddressInterface
      * @Assert\NotBlank()
      * @Assert\Length(min="2", max="255")
      */
-    private $country;
+    protected $country;
 
     /**
      * @var string
@@ -38,7 +38,7 @@ class Address implements AddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
-    private $state;
+    protected $state;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class Address implements AddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
-    private $county;
+    protected $county;
 
     /**
      * @var string
@@ -54,7 +54,7 @@ class Address implements AddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
-    private $zipCode;
+    protected $zipCode;
 
     /**
      * @var string
@@ -63,7 +63,7 @@ class Address implements AddressInterface
      * @Assert\NotBlank()
      * @Assert\Length(max="255")
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
@@ -71,7 +71,7 @@ class Address implements AddressInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
-    private $district;
+    protected $district;
 
     /**
      * @var string
@@ -80,7 +80,7 @@ class Address implements AddressInterface
      * @Assert\NotBlank()
      * @Assert\Length(max="255")
      */
-    private $street;
+    protected $street;
 
     /**
      * Get id
