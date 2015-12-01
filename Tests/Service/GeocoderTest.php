@@ -34,7 +34,7 @@ class GeocoderTest extends \PHPUnit_Framework_TestCase
         $this->geocoder->geocode($address);
 
         $this->assertEquals(47.6210785, $address->getLatitude());
-        $this->assertEquals(-122.323045, $address->getLongitude());
+        $this->assertEquals(-122.3230447, $address->getLongitude());
     }
 
     public function testUK()
@@ -47,8 +47,8 @@ class GeocoderTest extends \PHPUnit_Framework_TestCase
 
         $this->geocoder->geocode($address);
 
-        $this->assertEquals(51.5297852, $address->getLatitude());
-        $this->assertEquals(-0.1273748, $address->getLongitude());
+        $this->assertEquals(51.5298692, $address->getLatitude());
+        $this->assertEquals(-0.127707, $address->getLongitude());
     }
 
     public function testHU()
