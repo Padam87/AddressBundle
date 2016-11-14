@@ -28,12 +28,7 @@ public function registerBundles()
 
 # 2, Usage #
 
-Use the traits and embeddables with your schema.
-
-The bundle provides the following embeddables:
-- **Address** (country, city, zipCode, address)
-- **ShippingAddress** (recipient + **Address**)
-- **BillingAddress** (recipient + vatin + **Address**)
+Use the [traits](Entity/Traits) and [embeddables](Entity/Embeddables) with your schema.
 
 ## 2.1 Formatter ##
 ```php
