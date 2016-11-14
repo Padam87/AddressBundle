@@ -60,11 +60,10 @@ ADDRESS;
         $address->setCountry('HU');
         $address->setAddress('Bajcsy-Zs. u. 65. 1/3');
         $address->setCity('Budapest');
-        $address->setDistrict('II. kerület');
         $address->setZipCode('1065');
 
         $text = <<<ADDRESS
-Budapest II. kerület
+Budapest
 Bajcsy-Zs. u. 65. 1/3
 1065
 Hungary
@@ -79,10 +78,9 @@ ADDRESS;
         $address->setCountry('HU');
         $address->setAddress('Bajcsy-Zs. u. 65. 1/3');
         $address->setCity('Budapest');
-        $address->setDistrict('II. kerület');
         $address->setZipCode('1065');
 
-        $text = 'Budapest II. kerület<br>Bajcsy-Zs. u. 65. 1/3<br>1065<br>Hungary';
+        $text = 'Budapest<br>Bajcsy-Zs. u. 65. 1/3<br>1065<br>Hungary';
 
         $this->assertEquals($text, $this->formatter->format($address, Formatter::FLAG_HTML));
     }
@@ -93,10 +91,9 @@ ADDRESS;
         $address->setCountry('HU');
         $address->setAddress('Bajcsy-Zs. u. 65. 1/3');
         $address->setCity('Budapest');
-        $address->setDistrict('II. kerület');
         $address->setZipCode('1065');
 
-        $text = 'Budapest II. kerület, Bajcsy-Zs. u. 65. 1/3, 1065, Hungary';
+        $text = 'Budapest, Bajcsy-Zs. u. 65. 1/3, 1065, Hungary';
 
         $this->assertEquals($text, $this->formatter->format($address, Formatter::FLAG_INLINE));
     }

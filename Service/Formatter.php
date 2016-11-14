@@ -4,7 +4,6 @@ namespace Padam87\AddressBundle\Service;
 
 use Padam87\AddressBundle\Entity\AddressInterface;
 use Symfony\Component\Intl\Intl;
-use Symfony\Component\PropertyAccess\PropertyAccess;
 
 class Formatter
 {
@@ -52,12 +51,12 @@ class Formatter
         $string = trim($template->render($context));
 
         // remove multiple line breaks
-        while (strstr($string, $context['eol'] . $context['eol']) != false) {
+        while (strstr($string, $context['eol'] . $context['eol']) !== false) {
             $string = str_replace($context['eol'] . $context['eol'], $context['eol'], $string);
         }
 
         // remove multiple commas
-        while (strstr($string, ",,") != false) {
+        while (strstr($string, ",,") !== false) {
             $string = str_replace(",,", ",", $string);
         }
 
