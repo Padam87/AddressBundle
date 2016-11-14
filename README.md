@@ -11,62 +11,61 @@
 
 ## 1.1 Composer ##
 
-	"require": {
-		....
-		"padam87/address-bundle": "~1.0"
-	},
+```composer require padam87/address-bundle```
 
-## 1.2 BazingaGeocoderBundle ##
+## 1.2 AppKernel ##
 
-Install [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBundle)
-
-## 1.3 AppKernel ##
-
-	// app/AppKernel.php
-	public function registerBundles()
-	{
-	    return array(
-	        // ...
-	        new Padam87\AddressBundle\Padam87AddressBundle(),
-	    );
-	}
-
-## 1.4 doctrine:schema:update ##
-
-Update Your schema
+```php
+// app/AppKernel.php
+public function registerBundles()
+{
+    return array(
+        // ...
+        new Padam87\AddressBundle\Padam87AddressBundle(),
+    );
+}
+```
 
 # 2, Usage #
 
-You can create a relation to one of the Entities, or you can use one of the traits.
+Use the traits and embeddables with your schema.
+
+The bundle provides the following embeddables:
+- **Address** (country, city, zipCode, address)
+- **ShippingAddress** (recipient + **Address**)
+- **BillingAddress** (recipient + vatin + **Address**)
 
 ## 2.1 Formatter ##
-
-	$formatted = $this->get("padam87.address.formatter")->format($address);
+```php
+$formatted = $this->get("padam87.address.formatter")->format($address);
+```
 
 ### Flags ###
 
-	use Padam87\AddressBundle\Service\FormatterService;
+```php
+use Padam87\AddressBundle\Service\FormatterService;
 
-	...
+//...
 
-	$formatted = $this->get("padam87.address.formatter")->format($address, FormatterService::FLAG_NOBR);
+$formatted = $this->get("padam87.address.formatter")->format($address, FormatterService::FLAG_NOBR);
+```
 
 ### Available flags ###
 
-`FLAG_NOBR` No linebreak will be added
+- `FLAG_NOBR` No linebreak will be added
+- `FLAG_HTML` Outputs the address in html format
 
-`FLAG_HTML` Outputs the address in html format
+### Extend / override templates ###
 
-`FLAG_NOCASE` No case change will be applied
+You can override or extend the language-specific formats. Just create the appropriate template under `app\Resources\Padam87AddressBundle\views`
 
-### 2.2 Twig extension ###
+**example**: `app\Resources\Padam87AddressBundle\views\US.twig`
+**contributing**: Create a PR with your own country's format :)
 
-	{{ address|address()|raw }}
+## 2.2 Twig extension ##
+
+```twig
+{{ address|address()|raw }}
+```
 
 This will output the formatted address, with the `FLAG_HTML` added by default
-
-### 2.3 Geocoding ###
-
-	$address = new GeocodedAddress();
-
-The listener will take care of the rest ;)

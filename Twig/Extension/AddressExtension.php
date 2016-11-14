@@ -2,16 +2,17 @@
 
 namespace Padam87\AddressBundle\Twig\Extension;
 
-use Padam87\AddressBundle\Service\FormatterService;
+use Padam87\AddressBundle\Entity\AddressInterface;
+use Padam87\AddressBundle\Service\Formatter;
 
 class AddressExtension extends \Twig_Extension
 {
     public $formatter;
 
     /**
-     * @param FormatterService $formatter
+     * @param Formatter $formatter
      */
-    public function __construct(FormatterService $formatter)
+    public function setFormatter(Formatter $formatter)
     {
         $this->formatter = $formatter;
     }
@@ -26,9 +27,9 @@ class AddressExtension extends \Twig_Extension
         );
     }
 
-    public function address($address, $flags = 0)
+    public function address(AddressInterface $address, $flags = 0)
     {
-        return $this->formatter->format($address, $flags | FormatterService::FLAG_HTML);
+        return $this->formatter->format($address, $flags | Formatter::FLAG_HTML);
     }
 
     /**

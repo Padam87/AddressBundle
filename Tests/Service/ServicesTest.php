@@ -26,22 +26,6 @@ class ServicesTest extends WebTestCase
         $this->assertInstanceOf($className, $service);
     }
 
-    public function testGeocoder()
-    {
-        $service = $this->container->get('padam87.address.geocoder');
-        $className = $this->container->getParameter('padam87.address.geocoder.class');
-
-        $this->assertInstanceOf($className, $service);
-    }
-
-    public function testGeocodeListener()
-    {
-        $service = $this->container->get('padam87.address.geocode_listener');
-        $className = $this->container->getParameter('padam87.address.geocode_listener.class');
-
-        $this->assertInstanceOf($className, $service);
-    }
-
     public function testTwigExtension()
     {
         $service = $this->container->get('padam87.address.twig_extension');
@@ -49,4 +33,4 @@ class ServicesTest extends WebTestCase
 
         $this->assertInstanceOf($className, $service);
     }
-} 
+}

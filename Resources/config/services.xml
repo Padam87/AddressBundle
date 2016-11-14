@@ -5,26 +5,20 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="padam87.address.formatter.class">Padam87\AddressBundle\Service\FormatterService</parameter>
-        <parameter key="padam87.address.geocoder.class">Padam87\AddressBundle\Service\GeocoderService</parameter>
-        <parameter key="padam87.address.geocode_listener.class">Padam87\AddressBundle\Listener\GeocodeListener</parameter>
+        <parameter key="padam87.address.formatter.class">Padam87\AddressBundle\Service\Formatter</parameter>
         <parameter key="padam87.address.twig_extension.class">Padam87\AddressBundle\Twig\Extension\AddressExtension</parameter>
     </parameters>
 
     <services>
         <service id="padam87.address.formatter" class="%padam87.address.formatter.class%">
-        </service>
-        <service id="padam87.address.geocoder" class="%padam87.address.geocoder.class%">
-            <argument type="service" id="bazinga_geocoder.geocoder" />
-            <argument type="service" id="padam87.address.formatter" />
-        </service>
-        <service id="padam87.address.geocode_listener" class="%padam87.address.geocode_listener.class%">
-            <argument type="service" id="padam87.address.geocoder" />
-            <tag name="doctrine.event_listener" event="prePersist" />
-            <tag name="doctrine.event_listener" event="preUpdate" />
+            <call method="setTwig">
+                <argument type="service" id="twig" />
+            </call>
         </service>
         <service id="padam87.address.twig_extension" class="%padam87.address.twig_extension.class%">
-            <argument type="service" id="padam87.address.formatter" />
+            <call method="setFormatter">
+                <argument type="service" id="padam87.address.formatter" />
+            </call>
             <tag name="twig.extension" />
         </service>
     </services>
